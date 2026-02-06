@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>January Campaign Insights - Branding By Books</title>
+  <title>Campaign Insights - Branding By Books</title>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
     *{margin:0;padding:0;box-sizing:border-box}
@@ -18,7 +18,7 @@
     .nav-link:hover{color:rgba(255,255,255,.95);background:rgba(139,92,246,.2)}
     .nav-link.active{color:#a78bfa;background:rgba(139,92,246,.15)}
     .container{max-width:980px;margin:0 auto;position:relative;z-index:1}
-    .header{display:flex;justify-content:space-between;align-items:center;margin-bottom:50px;padding-top:20px}
+    .header{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;padding-top:20px}
     .header-left{display:flex;align-items:center;gap:16px}
     .logo-stack{height:28px}
     .header-divider{width:1px;height:20px;background:rgba(255,255,255,.15)}
@@ -26,6 +26,10 @@
     .header-right{text-align:right}
     .report-label{font-size:10px;text-transform:uppercase;letter-spacing:1.5px;color:rgba(255,255,255,.4);margin-bottom:4px;font-weight:600}
     .date-range{font-size:14px;color:rgba(255,255,255,.65);font-weight:400}
+    .month-selector{display:flex;gap:8px;margin-bottom:50px;flex-wrap:wrap}
+    .month-btn{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.6);padding:8px 18px;border-radius:20px;font-size:12px;font-weight:600;cursor:pointer;transition:all .3s;font-family:inherit;letter-spacing:.3px}
+    .month-btn:hover{background:rgba(139,92,246,.15);border-color:rgba(167,139,250,.3);color:rgba(255,255,255,.9)}
+    .month-btn.active{background:linear-gradient(135deg,rgba(139,92,246,.3),rgba(167,139,250,.2));border-color:rgba(167,139,250,.4);color:#fff;box-shadow:0 0 20px rgba(139,92,246,.15)}
     .section{padding-top:30px;margin-bottom:60px;scroll-margin-top:80px}
     .section-title{margin:0 0 24px;font-size:14px;text-transform:uppercase;letter-spacing:1.5px;color:rgba(255,255,255,.5);font-weight:600;display:flex;align-items:center;gap:12px}
     .section-title::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,rgba(255,255,255,.1),transparent)}
@@ -96,6 +100,7 @@
       .header-right{text-align:center}
       .nav-links{display:none}
       .strategy-metrics{flex-direction:column;gap:4px}
+      .month-selector{justify-content:center}
     }
   </style>
 </head>
@@ -105,7 +110,6 @@
       <img src="https://cdn.prod.website-files.com/67a3b299626c1a7afb14beb6/67a4b0de8c572bff612d91d1_stack-optimize-logo.avif" alt="StackOptimise" class="nav-logo">
       <div class="nav-links">
         <a href="#overview" class="nav-link active">Overview</a>
-        <!-- <a href="#provider" class="nav-link">Provider</a> -->
         <a href="#company-size" class="nav-link">Company Size</a>
         <a href="#company-type" class="nav-link">Company Type</a>
         <a href="#strategy" class="nav-link">Strategy</a>
@@ -122,276 +126,36 @@
         <span class="client-name">Branding By Books</span>
       </div>
       <div class="header-right">
-        <div class="report-label">January Campaign Insights</div>
-        <div class="date-range">Jan 5, 2026 - Feb 2, 2026</div>
+        <div class="report-label" id="report-label">Lifetime Campaign Insights</div>
+        <div class="date-range" id="date-range"></div>
       </div>
     </header>
 
-    <!-- Overview -->
+    <div id="month-selector" class="month-selector"></div>
+
     <section id="overview" class="section">
       <h2 class="section-title">Overview - Top Metrics</h2>
-      <div class="metrics-grid">
-        <div class="metric-card"><div class="metric-value">156,079</div><div class="metric-label">LEADS CONTACTED</div><div class="metric-subtext good">total volume</div></div>
-        <div class="metric-card"><div class="metric-value">5,009</div><div class="metric-label">REPLIES</div><div class="metric-subtext good">3.21% reply rate</div></div>
-        <div class="metric-card"><div class="metric-value">1,949</div><div class="metric-label">POSITIVE REPLIES</div><div class="metric-subtext good">38.9% positive rate</div></div>
-      </div>
-      <div class="metrics-grid">
-        <div class="metric-card"><div class="metric-value">80</div><div class="metric-label">LEADS / POSITIVE</div><div class="metric-subtext good">efficiency ratio</div></div>
-        <div class="metric-card highlight"><div class="metric-value">3.21%</div><div class="metric-label">OVERALL REPLY RATE</div><div class="metric-subtext good">reply / leads</div></div>
-        <div class="metric-card"><div class="metric-value">192</div><div class="metric-label">BOOKED CALLS</div><div class="metric-subtext good">1:813 leads per call</div></div>
-      </div>
+      <div id="overview-content"></div>
     </section>
 
-    <!-- PROVIDER SECTION - HIDDEN FROM CLIENT (uncomment to show)
-    <section id="provider" class="section">
-      <h2 class="section-title">Provider Segmentation</h2>
-      <div class="charts-row">
-        <div class="chart-container">
-          <div class="chart-title">Positive Rate by Provider</div>
-          <div class="bar-chart">
-            <div class="bar-row"><div class="bar-label">Google</div><div class="bar-track"><div class="bar-fill positive" style="width:100%"></div></div><div class="bar-value">1.63%</div></div>
-            <div class="bar-row"><div class="bar-label">Other</div><div class="bar-track"><div class="bar-fill positive" style="width:54%"></div></div><div class="bar-value">0.88%</div></div>
-            <div class="bar-row"><div class="bar-label">Microsoft</div><div class="bar-track"><div class="bar-fill positive" style="width:44%"></div></div><div class="bar-value">0.72%</div></div>
-          </div>
-        </div>
-        <div class="chart-container">
-          <div class="chart-title">Booked Rate by Provider</div>
-          <div class="bar-chart">
-            <div class="bar-row"><div class="bar-label">Google</div><div class="bar-track"><div class="bar-fill booked" style="width:100%"></div></div><div class="bar-value">0.11%</div></div>
-            <div class="bar-row"><div class="bar-label">Microsoft</div><div class="bar-track"><div class="bar-fill booked" style="width:45%"></div></div><div class="bar-value">0.05%</div></div>
-            <div class="bar-row"><div class="bar-label">Other</div><div class="bar-track"><div class="bar-fill booked" style="width:45%"></div></div><div class="bar-value">0.05%</div></div>
-          </div>
-        </div>
-      </div>
-      <div class="table-wrap"><div class="table-scroll">
-        <table class="sortable">
-          <thead><tr>
-            <th data-sort="string">Provider <span class="sort-icon">▼</span></th>
-            <th class="numeric" data-sort="number">Leads <span class="sort-icon">▼</span></th>
-            <th class="numeric" data-sort="number">Replies <span class="sort-icon">▼</span></th>
-            <th class="numeric" data-sort="percent">Reply % <span class="sort-icon">▼</span></th>
-            <th class="numeric" data-sort="number">Positives <span class="sort-icon">▼</span></th>
-            <th class="numeric" data-sort="percent">Pos % <span class="sort-icon">▼</span></th>
-            <th class="numeric" data-sort="number">Booked <span class="sort-icon">▼</span></th>
-            <th class="numeric" data-sort="percent">Book % <span class="sort-icon">▼</span></th>
-          </tr></thead>
-          <tbody>
-            <tr><td>Google</td><td class="numeric">86,508</td><td class="numeric">3,760</td><td class="numeric"><span class="badge badge-strong">4.35%</span></td><td class="numeric">1,407</td><td class="numeric"><span class="badge badge-strong">1.63%</span></td><td class="numeric">94</td><td class="numeric"><span class="badge badge-strong">0.11%</span></td></tr>
-            <tr><td>Microsoft</td><td class="numeric">45,937</td><td class="numeric">707</td><td class="numeric"><span class="badge badge-weak">1.54%</span></td><td class="numeric">333</td><td class="numeric"><span class="badge badge-weak">0.72%</span></td><td class="numeric">24</td><td class="numeric"><span class="badge badge-average">0.05%</span></td></tr>
-            <tr><td>Other</td><td class="numeric">23,634</td><td class="numeric">540</td><td class="numeric"><span class="badge badge-weak">2.28%</span></td><td class="numeric">209</td><td class="numeric"><span class="badge badge-weak">0.88%</span></td><td class="numeric">12</td><td class="numeric"><span class="badge badge-average">0.05%</span></td></tr>
-          </tbody>
-          <tfoot><tr><td>Total</td><td class="numeric">156,079</td><td class="numeric">5,009</td><td class="numeric">3.21%</td><td class="numeric">1,949</td><td class="numeric">1.25%</td><td class="numeric">192</td><td class="numeric">0.12%</td></tr></tfoot>
-        </table>
-      </div></div>
-    </section>
-    END PROVIDER SECTION -->
-
-    <!-- Company Size -->
     <section id="company-size" class="section">
       <h2 class="section-title">Company Size Segmentation</h2>
-      <div class="charts-row">
-        <div class="chart-container">
-          <div class="chart-title">Positive Rate by Company Size</div>
-          <div class="bar-chart">
-            <div class="bar-row"><div class="bar-label">0-1</div><div class="bar-track"><div class="bar-fill positive" style="width:100%"></div></div><div class="bar-value">1.94%</div></div>
-            <div class="bar-row"><div class="bar-label">2-10</div><div class="bar-track"><div class="bar-fill positive" style="width:65%"></div></div><div class="bar-value">1.26%</div></div>
-            <div class="bar-row"><div class="bar-label">11-20</div><div class="bar-track"><div class="bar-fill positive" style="width:36%"></div></div><div class="bar-value">0.69%</div></div>
-            <div class="bar-row"><div class="bar-label">21-50</div><div class="bar-track"><div class="bar-fill positive" style="width:28%"></div></div><div class="bar-value">0.55%</div></div>
-          </div>
-        </div>
-        <div class="chart-container">
-          <div class="chart-title">Booked Rate by Company Size</div>
-          <div class="bar-chart">
-            <div class="bar-row"><div class="bar-label">0-1</div><div class="bar-track"><div class="bar-fill booked" style="width:100%"></div></div><div class="bar-value">0.21%</div></div>
-            <div class="bar-row"><div class="bar-label">2-10</div><div class="bar-track"><div class="bar-fill booked" style="width:52%"></div></div><div class="bar-value">0.11%</div></div>
-            <div class="bar-row"><div class="bar-label">11-20</div><div class="bar-track"><div class="bar-fill booked" style="width:38%"></div></div><div class="bar-value">0.08%</div></div>
-            <div class="bar-row"><div class="bar-label">21-50</div><div class="bar-track"><div class="bar-fill booked" style="width:29%"></div></div><div class="bar-value">0.06%</div></div>
-          </div>
-        </div>
-      </div>
-      <div class="table-wrap"><div class="table-scroll">
-        <table class="sortable">
-          <thead><tr>
-            <th data-sort="string">Size <span class="sort-icon">▼</span></th>
-            <th class="numeric" data-sort="number">Leads <span class="sort-icon">▼</span></th>
-            <th class="numeric" data-sort="number">Replies <span class="sort-icon">▼</span></th>
-            <th class="numeric" data-sort="percent">Reply % <span class="sort-icon">▼</span></th>
-            <th class="numeric" data-sort="number">Positives <span class="sort-icon">▼</span></th>
-            <th class="numeric" data-sort="percent">Pos % <span class="sort-icon">▼</span></th>
-            <th class="numeric" data-sort="number">Booked <span class="sort-icon">▼</span></th>
-            <th class="numeric" data-sort="percent">Book % <span class="sort-icon">▼</span></th>
-          </tr></thead>
-          <tbody>
-            <tr><td>0-1</td><td class="numeric">34,805</td><td class="numeric">1,679</td><td class="numeric"><span class="badge badge-strong">4.82%</span></td><td class="numeric">674</td><td class="numeric"><span class="badge badge-strong">1.94%</span></td><td class="numeric">74</td><td class="numeric"><span class="badge badge-strong">0.21%</span></td></tr>
-            <tr><td>2-10</td><td class="numeric">81,256</td><td class="numeric">2,609</td><td class="numeric"><span class="badge badge-average">3.21%</span></td><td class="numeric">1,023</td><td class="numeric"><span class="badge badge-average">1.26%</span></td><td class="numeric">89</td><td class="numeric"><span class="badge badge-strong">0.11%</span></td></tr>
-            <tr><td>11-20</td><td class="numeric">22,395</td><td class="numeric">440</td><td class="numeric"><span class="badge badge-weak">1.96%</span></td><td class="numeric">155</td><td class="numeric"><span class="badge badge-weak">0.69%</span></td><td class="numeric">17</td><td class="numeric"><span class="badge badge-average">0.08%</span></td></tr>
-            <tr><td>21-50</td><td class="numeric">17,623</td><td class="numeric">281</td><td class="numeric"><span class="badge badge-weak">1.59%</span></td><td class="numeric">97</td><td class="numeric"><span class="badge badge-weak">0.55%</span></td><td class="numeric">11</td><td class="numeric"><span class="badge badge-average">0.06%</span></td></tr>
-          </tbody>
-          <tfoot><tr><td>Total</td><td class="numeric">156,079</td><td class="numeric">5,009</td><td class="numeric">3.21%</td><td class="numeric">1,949</td><td class="numeric">1.25%</td><td class="numeric">192</td><td class="numeric">0.12%</td></tr></tfoot>
-        </table>
-      </div></div>
+      <div id="company-size-content"></div>
     </section>
 
-    <!-- Company Type -->
     <section id="company-type" class="section">
       <h2 class="section-title">Company Type Segmentation</h2>
-      <div class="charts-row">
-        <div class="chart-container">
-          <div class="chart-title">Positive Rate by Company Type</div>
-          <div class="bar-chart">
-            <div class="bar-row"><div class="bar-label">Coaching</div><div class="bar-track"><div class="bar-fill positive" style="width:100%"></div></div><div class="bar-value">2.56%</div></div>
-            <div class="bar-row"><div class="bar-label">Lawyers</div><div class="bar-track"><div class="bar-fill positive" style="width:64%"></div></div><div class="bar-value">1.64%</div></div>
-            <div class="bar-row"><div class="bar-label">Medical</div><div class="bar-track"><div class="bar-fill positive" style="width:62%"></div></div><div class="bar-value">1.58%</div></div>
-            <div class="bar-row"><div class="bar-label">Consulting</div><div class="bar-track"><div class="bar-fill positive" style="width:55%"></div></div><div class="bar-value">1.42%</div></div>
-            <div class="bar-row"><div class="bar-label">AI / Tech</div><div class="bar-track"><div class="bar-fill positive" style="width:42%"></div></div><div class="bar-value">1.08%</div></div>
-            <div class="bar-row"><div class="bar-label">Financial</div><div class="bar-track"><div class="bar-fill positive" style="width:42%"></div></div><div class="bar-value">1.08%</div></div>
-            <div class="bar-row"><div class="bar-label">B2B Services</div><div class="bar-track"><div class="bar-fill positive" style="width:39%"></div></div><div class="bar-value">1.00%</div></div>
-          </div>
-        </div>
-        <div class="chart-container">
-          <div class="chart-title">Booked Rate by Company Type</div>
-          <div class="bar-chart">
-            <div class="bar-row"><div class="bar-label">Lawyers</div><div class="bar-track"><div class="bar-fill booked" style="width:100%"></div></div><div class="bar-value">0.22%</div></div>
-            <div class="bar-row"><div class="bar-label">Coaching</div><div class="bar-track"><div class="bar-fill booked" style="width:64%"></div></div><div class="bar-value">0.14%</div></div>
-            <div class="bar-row"><div class="bar-label">Consulting</div><div class="bar-track"><div class="bar-fill booked" style="width:55%"></div></div><div class="bar-value">0.12%</div></div>
-            <div class="bar-row"><div class="bar-label">Medical</div><div class="bar-track"><div class="bar-fill booked" style="width:50%"></div></div><div class="bar-value">0.11%</div></div>
-            <div class="bar-row"><div class="bar-label">Financial</div><div class="bar-track"><div class="bar-fill booked" style="width:50%"></div></div><div class="bar-value">0.11%</div></div>
-            <div class="bar-row"><div class="bar-label">B2B Services</div><div class="bar-track"><div class="bar-fill booked" style="width:27%"></div></div><div class="bar-value">0.06%</div></div>
-            <div class="bar-row"><div class="bar-label">AI / Tech</div><div class="bar-track"><div class="bar-fill booked" style="width:27%"></div></div><div class="bar-value">0.06%</div></div>
-          </div>
-        </div>
-      </div>
-      <div class="table-wrap"><div class="table-scroll">
-        <table class="sortable">
-          <thead><tr>
-            <th data-sort="string">Company Type <span class="sort-icon">▼</span></th>
-            <th class="numeric" data-sort="number">Leads <span class="sort-icon">▼</span></th>
-            <th class="numeric" data-sort="number">Replies <span class="sort-icon">▼</span></th>
-            <th class="numeric" data-sort="percent">Reply % <span class="sort-icon">▼</span></th>
-            <th class="numeric" data-sort="number">Positives <span class="sort-icon">▼</span></th>
-            <th class="numeric" data-sort="percent">Pos % <span class="sort-icon">▼</span></th>
-            <th class="numeric" data-sort="number">Booked <span class="sort-icon">▼</span></th>
-            <th class="numeric" data-sort="percent">Book % <span class="sort-icon">▼</span></th>
-          </tr></thead>
-          <tbody>
-            <tr><td>Coaching</td><td class="numeric">10,173</td><td class="numeric">644</td><td class="numeric"><span class="badge badge-strong">6.33%</span></td><td class="numeric">260</td><td class="numeric"><span class="badge badge-strong">2.56%</span></td><td class="numeric">14</td><td class="numeric"><span class="badge badge-strong">0.14%</span></td></tr>
-            <tr><td>Lawyers</td><td class="numeric">2,679</td><td class="numeric">92</td><td class="numeric"><span class="badge badge-average">3.43%</span></td><td class="numeric">44</td><td class="numeric"><span class="badge badge-strong">1.64%</span></td><td class="numeric">6</td><td class="numeric"><span class="badge badge-strong">0.22%</span></td></tr>
-            <tr><td>Medical / Private Practice</td><td class="numeric">14,987</td><td class="numeric">501</td><td class="numeric"><span class="badge badge-average">3.34%</span></td><td class="numeric">237</td><td class="numeric"><span class="badge badge-strong">1.58%</span></td><td class="numeric">17</td><td class="numeric"><span class="badge badge-strong">0.11%</span></td></tr>
-            <tr><td>Consulting</td><td class="numeric">23,127</td><td class="numeric">805</td><td class="numeric"><span class="badge badge-strong">3.48%</span></td><td class="numeric">328</td><td class="numeric"><span class="badge badge-average">1.42%</span></td><td class="numeric">27</td><td class="numeric"><span class="badge badge-strong">0.12%</span></td></tr>
-            <tr><td>Financial & Wealth Mgmt</td><td class="numeric">11,328</td><td class="numeric">298</td><td class="numeric"><span class="badge badge-average">2.63%</span></td><td class="numeric">122</td><td class="numeric"><span class="badge badge-average">1.08%</span></td><td class="numeric">12</td><td class="numeric"><span class="badge badge-average">0.11%</span></td></tr>
-            <tr><td>AI or Tech</td><td class="numeric">27,293</td><td class="numeric">745</td><td class="numeric"><span class="badge badge-average">2.73%</span></td><td class="numeric">296</td><td class="numeric"><span class="badge badge-average">1.08%</span></td><td class="numeric">16</td><td class="numeric"><span class="badge badge-average">0.06%</span></td></tr>
-            <tr><td>B2B Services</td><td class="numeric">66,492</td><td class="numeric">1,922</td><td class="numeric"><span class="badge badge-average">2.89%</span></td><td class="numeric">662</td><td class="numeric"><span class="badge badge-average">1.00%</span></td><td class="numeric">38</td><td class="numeric"><span class="badge badge-average">0.06%</span></td></tr>
-          </tbody>
-          <tfoot><tr><td>Total</td><td class="numeric">156,079</td><td class="numeric">5,009</td><td class="numeric">3.21%</td><td class="numeric">1,949</td><td class="numeric">1.25%</td><td class="numeric">192</td><td class="numeric">0.12%</td></tr></tfoot>
-        </table>
-      </div></div>
+      <div id="company-type-content"></div>
     </section>
 
-    <!-- Strategy -->
     <section id="strategy" class="section">
       <h2 class="section-title">Strategy Segmentation</h2>
-      <div class="charts-row">
-        <div class="chart-container">
-          <div class="chart-title">Positive Rate by Strategy</div>
-          <div class="bar-chart">
-            <div class="bar-row"><div class="bar-label">S6</div><div class="bar-track"><div class="bar-fill positive" style="width:100%"></div></div><div class="bar-value">1.45%</div></div>
-            <div class="bar-row"><div class="bar-label">S1</div><div class="bar-track"><div class="bar-fill positive" style="width:99%"></div></div><div class="bar-value">1.44%</div></div>
-            <div class="bar-row"><div class="bar-label">S2</div><div class="bar-track"><div class="bar-fill positive" style="width:96%"></div></div><div class="bar-value">1.39%</div></div>
-            <div class="bar-row"><div class="bar-label">S3</div><div class="bar-track"><div class="bar-fill positive" style="width:93%"></div></div><div class="bar-value">1.35%</div></div>
-            <div class="bar-row"><div class="bar-label">S5b</div><div class="bar-track"><div class="bar-fill positive" style="width:88%"></div></div><div class="bar-value">1.27%</div></div>
-            <div class="bar-row"><div class="bar-label">S5a</div><div class="bar-track"><div class="bar-fill positive" style="width:72%"></div></div><div class="bar-value">1.04%</div></div>
-            <div class="bar-row"><div class="bar-label">S4</div><div class="bar-track"><div class="bar-fill positive" style="width:69%"></div></div><div class="bar-value">1.00%</div></div>
-            <div class="bar-row"><div class="bar-label">S7</div><div class="bar-track"><div class="bar-fill positive" style="width:56%"></div></div><div class="bar-value">0.81%</div></div>
-          </div>
-        </div>
-        <div class="chart-container">
-          <div class="chart-title">Booked Rate by Strategy</div>
-          <div class="bar-chart">
-            <div class="bar-row"><div class="bar-label">S2</div><div class="bar-track"><div class="bar-fill booked" style="width:100%"></div></div><div class="bar-value">0.11%</div></div>
-            <div class="bar-row"><div class="bar-label">S5b</div><div class="bar-track"><div class="bar-fill booked" style="width:91%"></div></div><div class="bar-value">0.10%</div></div>
-            <div class="bar-row"><div class="bar-label">S3</div><div class="bar-track"><div class="bar-fill booked" style="width:91%"></div></div><div class="bar-value">0.10%</div></div>
-            <div class="bar-row"><div class="bar-label">S1</div><div class="bar-track"><div class="bar-fill booked" style="width:82%"></div></div><div class="bar-value">0.09%</div></div>
-            <div class="bar-row"><div class="bar-label">S6</div><div class="bar-track"><div class="bar-fill booked" style="width:73%"></div></div><div class="bar-value">0.08%</div></div>
-            <div class="bar-row"><div class="bar-label">S5a</div><div class="bar-track"><div class="bar-fill booked" style="width:64%"></div></div><div class="bar-value">0.07%</div></div>
-            <div class="bar-row"><div class="bar-label">S4</div><div class="bar-track"><div class="bar-fill booked" style="width:55%"></div></div><div class="bar-value">0.06%</div></div>
-            <div class="bar-row"><div class="bar-label">S7</div><div class="bar-track"><div class="bar-fill booked" style="width:45%"></div></div><div class="bar-value">0.05%</div></div>
-          </div>
-        </div>
-      </div>
-      <div class="table-wrap"><div class="table-scroll">
-        <table class="sortable">
-          <thead><tr>
-            <th data-sort="string">Strategy <span class="sort-icon">▼</span></th>
-            <th class="numeric" data-sort="number">Leads <span class="sort-icon">▼</span></th>
-            <th class="numeric" data-sort="number">Replies <span class="sort-icon">▼</span></th>
-            <th class="numeric" data-sort="percent">Reply % <span class="sort-icon">▼</span></th>
-            <th class="numeric" data-sort="number">Positives <span class="sort-icon">▼</span></th>
-            <th class="numeric" data-sort="percent">Pos % <span class="sort-icon">▼</span></th>
-            <th class="numeric" data-sort="number">Booked <span class="sort-icon">▼</span></th>
-            <th class="numeric" data-sort="percent">Book % <span class="sort-icon">▼</span></th>
-          </tr></thead>
-          <tbody>
-            <tr><td>S1</td><td class="numeric">26,598</td><td class="numeric">1,002</td><td class="numeric"><span class="badge badge-strong">3.77%</span></td><td class="numeric">383</td><td class="numeric"><span class="badge badge-average">1.44%</span></td><td class="numeric">23</td><td class="numeric"><span class="badge badge-average">0.09%</span></td></tr>
-            <tr><td>S2</td><td class="numeric">26,096</td><td class="numeric">894</td><td class="numeric"><span class="badge badge-average">3.43%</span></td><td class="numeric">362</td><td class="numeric"><span class="badge badge-average">1.39%</span></td><td class="numeric">29</td><td class="numeric"><span class="badge badge-strong">0.11%</span></td></tr>
-            <tr><td>S3</td><td class="numeric">8,091</td><td class="numeric">289</td><td class="numeric"><span class="badge badge-strong">3.57%</span></td><td class="numeric">109</td><td class="numeric"><span class="badge badge-average">1.35%</span></td><td class="numeric">8</td><td class="numeric"><span class="badge badge-average">0.10%</span></td></tr>
-            <tr><td>S4</td><td class="numeric">9,852</td><td class="numeric">311</td><td class="numeric"><span class="badge badge-average">3.16%</span></td><td class="numeric">99</td><td class="numeric"><span class="badge badge-average">1.00%</span></td><td class="numeric">6</td><td class="numeric"><span class="badge badge-average">0.06%</span></td></tr>
-            <tr><td>S5a</td><td class="numeric">5,984</td><td class="numeric">154</td><td class="numeric"><span class="badge badge-average">2.57%</span></td><td class="numeric">62</td><td class="numeric"><span class="badge badge-average">1.04%</span></td><td class="numeric">4</td><td class="numeric"><span class="badge badge-average">0.07%</span></td></tr>
-            <tr><td>S5b</td><td class="numeric">26,327</td><td class="numeric">863</td><td class="numeric"><span class="badge badge-average">3.28%</span></td><td class="numeric">334</td><td class="numeric"><span class="badge badge-average">1.27%</span></td><td class="numeric">26</td><td class="numeric"><span class="badge badge-average">0.10%</span></td></tr>
-            <tr><td>S6</td><td class="numeric">26,562</td><td class="numeric">914</td><td class="numeric"><span class="badge badge-average">3.44%</span></td><td class="numeric">386</td><td class="numeric"><span class="badge badge-average">1.45%</span></td><td class="numeric">20</td><td class="numeric"><span class="badge badge-average">0.08%</span></td></tr>
-            <tr><td>S7</td><td class="numeric">26,569</td><td class="numeric">580</td><td class="numeric"><span class="badge badge-weak">2.18%</span></td><td class="numeric">214</td><td class="numeric"><span class="badge badge-weak">0.81%</span></td><td class="numeric">14</td><td class="numeric"><span class="badge badge-weak">0.05%</span></td></tr>
-          </tbody>
-          <tfoot><tr><td>Total</td><td class="numeric">156,079</td><td class="numeric">5,009</td><td class="numeric">3.21%</td><td class="numeric">1,949</td><td class="numeric">1.25%</td><td class="numeric">192</td><td class="numeric">0.12%</td></tr></tfoot>
-        </table>
-      </div></div>
+      <div id="strategy-content"></div>
     </section>
 
-    <!-- Recommendations -->
     <section id="recommendations" class="section">
       <h2 class="section-title">Top Strategies per Company Type</h2>
-      <div class="recommendations-grid">
-        <div class="recommendation-card">
-          <h3><span class="type-icon"></span>Coaching</h3>
-          <div class="strategy-rank"><div class="rank-number rank-1">1</div><div class="strategy-name">S6</div><div class="strategy-metrics"><div class="strategy-metric"><div class="strategy-metric-value">3.09%</div><div class="strategy-metric-label">Pos Rate</div></div><div class="strategy-metric"><div class="strategy-metric-value">0.17%</div><div class="strategy-metric-label">Book Rate</div></div></div></div>
-          <div class="strategy-rank"><div class="rank-number rank-2">2</div><div class="strategy-name">S2</div><div class="strategy-metrics"><div class="strategy-metric"><div class="strategy-metric-value">2.92%</div><div class="strategy-metric-label">Pos Rate</div></div><div class="strategy-metric"><div class="strategy-metric-value">0.18%</div><div class="strategy-metric-label">Book Rate</div></div></div></div>
-          <div class="strategy-rank"><div class="rank-number rank-3">3</div><div class="strategy-name">S1</div><div class="strategy-metrics"><div class="strategy-metric"><div class="strategy-metric-value">2.87%</div><div class="strategy-metric-label">Pos Rate</div></div><div class="strategy-metric"><div class="strategy-metric-value">0.17%</div><div class="strategy-metric-label">Book Rate</div></div></div></div>
-        </div>
-        <div class="recommendation-card">
-          <h3><span class="type-icon"></span>Lawyers</h3>
-          <div class="strategy-rank"><div class="rank-number rank-1">1</div><div class="strategy-name">S2</div><div class="strategy-metrics"><div class="strategy-metric"><div class="strategy-metric-value">2.23%</div><div class="strategy-metric-label">Pos Rate</div></div><div class="strategy-metric"><div class="strategy-metric-value">0.45%</div><div class="strategy-metric-label">Book Rate</div></div></div></div>
-          <div class="strategy-rank"><div class="rank-number rank-2">2</div><div class="strategy-name">S1</div><div class="strategy-metrics"><div class="strategy-metric"><div class="strategy-metric-value">2.11%</div><div class="strategy-metric-label">Pos Rate</div></div><div class="strategy-metric"><div class="strategy-metric-value">0.21%</div><div class="strategy-metric-label">Book Rate</div></div></div></div>
-          <div class="strategy-rank"><div class="rank-number rank-3">3</div><div class="strategy-name">S6</div><div class="strategy-metrics"><div class="strategy-metric"><div class="strategy-metric-value">2.02%</div><div class="strategy-metric-label">Pos Rate</div></div><div class="strategy-metric"><div class="strategy-metric-value">0.00%</div><div class="strategy-metric-label">Book Rate</div></div></div></div>
-        </div>
-        <div class="recommendation-card">
-          <h3><span class="type-icon"></span>Medical / Private Practice</h3>
-          <div class="strategy-rank"><div class="rank-number rank-1">1</div><div class="strategy-name">S3</div><div class="strategy-metrics"><div class="strategy-metric"><div class="strategy-metric-value">2.24%</div><div class="strategy-metric-label">Pos Rate</div></div><div class="strategy-metric"><div class="strategy-metric-value">0.00%</div><div class="strategy-metric-label">Book Rate</div></div></div></div>
-          <div class="strategy-rank"><div class="rank-number rank-2">2</div><div class="strategy-name">S1</div><div class="strategy-metrics"><div class="strategy-metric"><div class="strategy-metric-value">2.10%</div><div class="strategy-metric-label">Pos Rate</div></div><div class="strategy-metric"><div class="strategy-metric-value">0.07%</div><div class="strategy-metric-label">Book Rate</div></div></div></div>
-          <div class="strategy-rank"><div class="rank-number rank-3">3</div><div class="strategy-name">S2</div><div class="strategy-metrics"><div class="strategy-metric"><div class="strategy-metric-value">1.82%</div><div class="strategy-metric-label">Pos Rate</div></div><div class="strategy-metric"><div class="strategy-metric-value">0.19%</div><div class="strategy-metric-label">Book Rate</div></div></div></div>
-        </div>
-        <div class="recommendation-card">
-          <h3><span class="type-icon"></span>Consulting</h3>
-          <div class="strategy-rank"><div class="rank-number rank-1">1</div><div class="strategy-name">S3</div><div class="strategy-metrics"><div class="strategy-metric"><div class="strategy-metric-value">1.97%</div><div class="strategy-metric-label">Pos Rate</div></div><div class="strategy-metric"><div class="strategy-metric-value">0.09%</div><div class="strategy-metric-label">Book Rate</div></div></div></div>
-          <div class="strategy-rank"><div class="rank-number rank-2">2</div><div class="strategy-name">S6</div><div class="strategy-metrics"><div class="strategy-metric"><div class="strategy-metric-value">1.80%</div><div class="strategy-metric-label">Pos Rate</div></div><div class="strategy-metric"><div class="strategy-metric-value">0.10%</div><div class="strategy-metric-label">Book Rate</div></div></div></div>
-          <div class="strategy-rank"><div class="rank-number rank-3">3</div><div class="strategy-name">S1</div><div class="strategy-metrics"><div class="strategy-metric"><div class="strategy-metric-value">1.57%</div><div class="strategy-metric-label">Pos Rate</div></div><div class="strategy-metric"><div class="strategy-metric-value">0.15%</div><div class="strategy-metric-label">Book Rate</div></div></div></div>
-        </div>
-        <div class="recommendation-card">
-          <h3><span class="type-icon"></span>Financial & Wealth Mgmt</h3>
-          <div class="strategy-rank"><div class="rank-number rank-1">1</div><div class="strategy-name">S5b</div><div class="strategy-metrics"><div class="strategy-metric"><div class="strategy-metric-value">1.31%</div><div class="strategy-metric-label">Pos Rate</div></div><div class="strategy-metric"><div class="strategy-metric-value">0.15%</div><div class="strategy-metric-label">Book Rate</div></div></div></div>
-          <div class="strategy-rank"><div class="rank-number rank-2">2</div><div class="strategy-name">S3</div><div class="strategy-metrics"><div class="strategy-metric"><div class="strategy-metric-value">1.20%</div><div class="strategy-metric-label">Pos Rate</div></div><div class="strategy-metric"><div class="strategy-metric-value">0.40%</div><div class="strategy-metric-label">Book Rate</div></div></div></div>
-          <div class="strategy-rank"><div class="rank-number rank-3">3</div><div class="strategy-name">S1</div><div class="strategy-metrics"><div class="strategy-metric"><div class="strategy-metric-value">1.12%</div><div class="strategy-metric-label">Pos Rate</div></div><div class="strategy-metric"><div class="strategy-metric-value">0.00%</div><div class="strategy-metric-label">Book Rate</div></div></div></div>
-        </div>
-        <div class="recommendation-card">
-          <h3><span class="type-icon"></span>AI or Tech</h3>
-          <div class="strategy-rank"><div class="rank-number rank-1">1</div><div class="strategy-name">S6</div><div class="strategy-metrics"><div class="strategy-metric"><div class="strategy-metric-value">1.44%</div><div class="strategy-metric-label">Pos Rate</div></div><div class="strategy-metric"><div class="strategy-metric-value">0.04%</div><div class="strategy-metric-label">Book Rate</div></div></div></div>
-          <div class="strategy-rank"><div class="rank-number rank-2">2</div><div class="strategy-name">S1</div><div class="strategy-metrics"><div class="strategy-metric"><div class="strategy-metric-value">1.31%</div><div class="strategy-metric-label">Pos Rate</div></div><div class="strategy-metric"><div class="strategy-metric-value">0.07%</div><div class="strategy-metric-label">Book Rate</div></div></div></div>
-          <div class="strategy-rank"><div class="rank-number rank-3">3</div><div class="strategy-name">S5b</div><div class="strategy-metrics"><div class="strategy-metric"><div class="strategy-metric-value">1.13%</div><div class="strategy-metric-label">Pos Rate</div></div><div class="strategy-metric"><div class="strategy-metric-value">0.05%</div><div class="strategy-metric-label">Book Rate</div></div></div></div>
-        </div>
-        <div class="recommendation-card">
-          <h3><span class="type-icon"></span>B2B Services</h3>
-          <div class="strategy-rank"><div class="rank-number rank-1">1</div><div class="strategy-name">S2</div><div class="strategy-metrics"><div class="strategy-metric"><div class="strategy-metric-value">1.23%</div><div class="strategy-metric-label">Pos Rate</div></div><div class="strategy-metric"><div class="strategy-metric-value">0.05%</div><div class="strategy-metric-label">Book Rate</div></div></div></div>
-          <div class="strategy-rank"><div class="rank-number rank-2">2</div><div class="strategy-name">S6</div><div class="strategy-metrics"><div class="strategy-metric"><div class="strategy-metric-value">1.15%</div><div class="strategy-metric-label">Pos Rate</div></div><div class="strategy-metric"><div class="strategy-metric-value">0.07%</div><div class="strategy-metric-label">Book Rate</div></div></div></div>
-          <div class="strategy-rank"><div class="rank-number rank-3">3</div><div class="strategy-name">S5b</div><div class="strategy-metrics"><div class="strategy-metric"><div class="strategy-metric-value">1.10%</div><div class="strategy-metric-label">Pos Rate</div></div><div class="strategy-metric"><div class="strategy-metric-value">0.07%</div><div class="strategy-metric-label">Book Rate</div></div></div></div>
-        </div>
-      </div>
+      <div id="recommendations-content"></div>
     </section>
 
     <footer class="footer">
@@ -401,47 +165,442 @@
   </div>
 
   <script>
-    // Active nav on scroll
-    const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('.nav-link');
+    // ── DATA ──────────────────────────────────────────────────────────────
+    const DATA = {
+      months: {
+        "2026-01": {
+          label: "Month 1",
+          dateRange: "Jan 5, 2026 - Feb 4, 2026",
+          overview: { leads: 154444, replies: 5005, positives: 1967, booked: 192 },
+          companySize: [
+            { name: "0-1", leads: 34805, replies: 1679, positives: 674, booked: 74 },
+            { name: "2-10", leads: 81256, replies: 2609, positives: 1023, booked: 89 },
+            { name: "11-20", leads: 22395, replies: 440, positives: 155, booked: 17 },
+            { name: "21-50", leads: 17623, replies: 281, positives: 97, booked: 11 }
+          ],
+          companyType: [
+            { name: "Coaching", leads: 10173, replies: 644, positives: 260, booked: 14 },
+            { name: "Lawyers", leads: 2679, replies: 92, positives: 44, booked: 6 },
+            { name: "Medical / Private Practice", leads: 14987, replies: 501, positives: 237, booked: 17 },
+            { name: "Consulting", leads: 23127, replies: 805, positives: 328, booked: 27 },
+            { name: "Financial & Wealth Mgmt", leads: 11328, replies: 298, positives: 122, booked: 12 },
+            { name: "AI or Tech", leads: 27293, replies: 745, positives: 296, booked: 16 },
+            { name: "B2B Services", leads: 66492, replies: 1922, positives: 662, booked: 38 }
+          ],
+          strategy: [
+            { name: "S1", leads: 26316, replies: 1014, positives: 414, booked: 23 },
+            { name: "S2", leads: 25898, replies: 902, positives: 360, booked: 29 },
+            { name: "S3", leads: 7782, replies: 292, positives: 107, booked: 8 },
+            { name: "S4", leads: 9861, replies: 306, positives: 98, booked: 6 },
+            { name: "S5a", leads: 3301, replies: 86, positives: 29, booked: 4 },
+            { name: "S5b", leads: 26180, replies: 834, positives: 326, booked: 26 },
+            { name: "S6", leads: 26311, replies: 913, positives: 379, booked: 20 },
+            { name: "S7", leads: 28795, replies: 658, positives: 254, booked: 14 }
+          ],
+          recommendations: {
+            "Coaching": [
+              { strategy: "S6", leads: 1756, positives: 54, booked: 3 },
+              { strategy: "S2", leads: 1701, positives: 50, booked: 3 },
+              { strategy: "S1", leads: 1734, positives: 50, booked: 3 }
+            ],
+            "Lawyers": [
+              { strategy: "S2", leads: 448, positives: 10, booked: 2 },
+              { strategy: "S1", leads: 456, positives: 10, booked: 1 },
+              { strategy: "S6", leads: 455, positives: 9, booked: 0 }
+            ],
+            "Medical / Private Practice": [
+              { strategy: "S3", leads: 777, positives: 17, booked: 0 },
+              { strategy: "S1", leads: 2555, positives: 54, booked: 2 },
+              { strategy: "S2", leads: 2507, positives: 46, booked: 5 }
+            ],
+            "Consulting": [
+              { strategy: "S3", leads: 1198, positives: 24, booked: 1 },
+              { strategy: "S6", leads: 3939, positives: 71, booked: 4 },
+              { strategy: "S1", leads: 3942, positives: 62, booked: 6 }
+            ],
+            "Financial & Wealth Mgmt": [
+              { strategy: "S5b", leads: 1911, positives: 25, booked: 3 },
+              { strategy: "S3", leads: 587, positives: 7, booked: 2 },
+              { strategy: "S1", leads: 1931, positives: 22, booked: 0 }
+            ],
+            "AI or Tech": [
+              { strategy: "S6", leads: 4643, positives: 67, booked: 2 },
+              { strategy: "S1", leads: 4654, positives: 61, booked: 3 },
+              { strategy: "S5b", leads: 4601, positives: 52, booked: 2 }
+            ],
+            "B2B Services": [
+              { strategy: "S2", leads: 11121, positives: 137, booked: 6 },
+              { strategy: "S6", leads: 11323, positives: 130, booked: 8 },
+              { strategy: "S5b", leads: 11214, positives: 123, booked: 8 }
+            ]
+          }
+        },
+        "2026-02": {
+          label: "Month 2",
+          dateRange: "Feb 5, 2026 - Mar 4, 2026",
+          overview: { leads: 16622, replies: 112, positives: 34, booked: 0 },
+          companySize: [],
+          companyType: [],
+          strategy: [
+            { name: "S1", leads: 3725, replies: 33, positives: 7, booked: 0 },
+            { name: "S2", leads: 2075, replies: 16, positives: 5, booked: 0 },
+            { name: "S3", leads: 535, replies: 6, positives: 2, booked: 0 },
+            { name: "S5b", leads: 2575, replies: 12, positives: 2, booked: 0 },
+            { name: "S6", leads: 2676, replies: 15, positives: 5, booked: 0 },
+            { name: "S7", leads: 5036, replies: 30, positives: 13, booked: 0 }
+          ],
+          recommendations: {}
+        }
+      }
+    };
+
+    // ── HELPERS ───────────────────────────────────────────────────────────
+    let currentMonth = "lifetime";
+
+    function fmt(n) { return n.toLocaleString("en-US"); }
+    function pct(num, den) { return den === 0 ? "0.00%" : (num / den * 100).toFixed(2) + "%"; }
+    function pctNum(num, den) { return den === 0 ? 0 : num / den * 100; }
+
+    function badgeClass(value, allValues) {
+      const sorted = [...allValues].sort((a, b) => b - a);
+      const third = Math.ceil(sorted.length / 3);
+      const rank = sorted.indexOf(value);
+      if (rank < third) return "badge-strong";
+      if (rank < third * 2) return "badge-average";
+      return "badge-weak";
+    }
+
+    // ── LIFETIME AGGREGATION ─────────────────────────────────────────────
+    function computeLifetime() {
+      const keys = Object.keys(DATA.months);
+      if (keys.length === 0) return null;
+      if (keys.length === 1) {
+        const m = DATA.months[keys[0]];
+        return {
+          label: "Lifetime",
+          dateRange: m.dateRange,
+          overview: { ...m.overview },
+          companySize: m.companySize.map(r => ({ ...r })),
+          companyType: m.companyType.map(r => ({ ...r })),
+          strategy: m.strategy.map(r => ({ ...r })),
+          recommendations: computeLifetimeRecommendations()
+        };
+      }
+
+      const result = {
+        label: "Lifetime",
+        dateRange: "",
+        overview: { leads: 0, replies: 0, positives: 0, booked: 0 },
+        companySize: [],
+        companyType: [],
+        strategy: [],
+        recommendations: {}
+      };
+
+      // Date range: earliest start to latest end
+      const allDates = keys.sort();
+      const first = DATA.months[allDates[0]];
+      const last = DATA.months[allDates[allDates.length - 1]];
+      const startDate = first.dateRange.split(" - ")[0];
+      const endDate = last.dateRange.split(" - ")[1];
+      result.dateRange = startDate + " - " + endDate;
+
+      // Sum overview
+      keys.forEach(k => {
+        const m = DATA.months[k];
+        result.overview.leads += m.overview.leads;
+        result.overview.replies += m.overview.replies;
+        result.overview.positives += m.overview.positives;
+        result.overview.booked += m.overview.booked;
+      });
+
+      // Sum segments by name
+      function sumSegment(segKey) {
+        const map = {};
+        keys.forEach(k => {
+          DATA.months[k][segKey].forEach(row => {
+            if (!map[row.name]) map[row.name] = { name: row.name, leads: 0, replies: 0, positives: 0, booked: 0 };
+            map[row.name].leads += row.leads;
+            map[row.name].replies += row.replies;
+            map[row.name].positives += row.positives;
+            map[row.name].booked += row.booked;
+          });
+        });
+        return Object.values(map);
+      }
+
+      result.companySize = sumSegment("companySize");
+      result.companyType = sumSegment("companyType");
+      result.strategy = sumSegment("strategy");
+      result.recommendations = computeLifetimeRecommendations();
+
+      return result;
+    }
+
+    function computeLifetimeRecommendations() {
+      const keys = Object.keys(DATA.months);
+      // Collect all (companyType, strategy) pairs across months
+      const map = {}; // map[companyType][strategy] = {leads, positives, booked}
+      keys.forEach(k => {
+        const recs = DATA.months[k].recommendations;
+        Object.keys(recs).forEach(ct => {
+          if (!map[ct]) map[ct] = {};
+          recs[ct].forEach(r => {
+            if (!map[ct][r.strategy]) map[ct][r.strategy] = { strategy: r.strategy, leads: 0, positives: 0, booked: 0 };
+            map[ct][r.strategy].leads += r.leads;
+            map[ct][r.strategy].positives += r.positives;
+            map[ct][r.strategy].booked += r.booked;
+          });
+        });
+      });
+
+      // For each company type, rank by positive rate (positives/leads), take top 3
+      const result = {};
+      Object.keys(map).forEach(ct => {
+        const entries = Object.values(map[ct]);
+        entries.sort((a, b) => pctNum(b.positives, b.leads) - pctNum(a.positives, a.leads));
+        result[ct] = entries.slice(0, 3);
+      });
+      return result;
+    }
+
+    // ── GET CURRENT DATA ─────────────────────────────────────────────────
+    function getCurrentData() {
+      if (currentMonth === "lifetime") return computeLifetime();
+      return DATA.months[currentMonth];
+    }
+
+    // ── RENDER: MONTH SELECTOR ───────────────────────────────────────────
+    function renderMonthSelector() {
+      const el = document.getElementById("month-selector");
+      const keys = Object.keys(DATA.months);
+      let html = '<button class="month-btn' + (currentMonth === "lifetime" ? " active" : "") + '" data-month="lifetime">Lifetime</button>';
+      keys.forEach(k => {
+        const m = DATA.months[k];
+        html += '<button class="month-btn' + (currentMonth === k ? " active" : "") + '" data-month="' + k + '">' + m.label + '</button>';
+      });
+      el.innerHTML = html;
+      el.querySelectorAll(".month-btn").forEach(btn => {
+        btn.addEventListener("click", () => switchMonth(btn.dataset.month));
+      });
+    }
+
+    // ── RENDER: OVERVIEW ─────────────────────────────────────────────────
+    function renderOverview(data) {
+      const o = data.overview;
+      const replyRate = pct(o.replies, o.leads);
+      const positiveRate = pct(o.positives, o.replies);
+      const leadsPerPositive = o.positives === 0 ? "—" : Math.round(o.leads / o.positives);
+      const leadsPerCall = o.booked === 0 ? "—" : "1:" + fmt(Math.round(o.leads / o.booked));
+
+      document.getElementById("overview-content").innerHTML =
+        '<div class="metrics-grid">' +
+          '<div class="metric-card"><div class="metric-value">' + fmt(o.leads) + '</div><div class="metric-label">LEADS CONTACTED</div><div class="metric-subtext good">total volume</div></div>' +
+          '<div class="metric-card"><div class="metric-value">' + fmt(o.replies) + '</div><div class="metric-label">REPLIES</div><div class="metric-subtext good">' + replyRate + ' reply rate</div></div>' +
+          '<div class="metric-card"><div class="metric-value">' + fmt(o.positives) + '</div><div class="metric-label">POSITIVE REPLIES</div><div class="metric-subtext good">' + positiveRate + ' positive rate</div></div>' +
+        '</div>' +
+        '<div class="metrics-grid">' +
+          '<div class="metric-card"><div class="metric-value">' + leadsPerPositive + '</div><div class="metric-label">LEADS / POSITIVE</div><div class="metric-subtext good">efficiency ratio</div></div>' +
+          '<div class="metric-card highlight"><div class="metric-value">' + replyRate + '</div><div class="metric-label">OVERALL REPLY RATE</div><div class="metric-subtext good">reply / leads</div></div>' +
+          '<div class="metric-card"><div class="metric-value">' + fmt(o.booked) + '</div><div class="metric-label">BOOKED CALLS</div><div class="metric-subtext good">' + leadsPerCall + ' leads per call</div></div>' +
+        '</div>';
+    }
+
+    // ── RENDER: SEGMENT (SIZE / TYPE / STRATEGY) ─────────────────────────
+    function renderSegment(containerId, rows, labelHeader, posLabel, bookedLabel) {
+      if (!rows || rows.length === 0) {
+        document.getElementById(containerId).innerHTML =
+          '<div class="chart-container" style="text-align:center;padding:40px 24px">' +
+          '<div style="color:rgba(255,255,255,.3);font-size:13px;font-weight:500;text-transform:uppercase;letter-spacing:1px">Data coming soon</div>' +
+          '</div>';
+        return;
+      }
+      // Sort by positive rate desc for charts
+      const byPosRate = [...rows].sort((a, b) => pctNum(b.positives, b.leads) - pctNum(a.positives, a.leads));
+      const byBookRate = [...rows].sort((a, b) => pctNum(b.booked, b.leads) - pctNum(a.booked, a.leads));
+      const maxPosRate = byPosRate.length ? pctNum(byPosRate[0].positives, byPosRate[0].leads) : 1;
+      const maxBookRate = byBookRate.length ? pctNum(byBookRate[0].booked, byBookRate[0].leads) : 1;
+
+      // Badge values for percentile coloring
+      const replyRates = rows.map(r => pctNum(r.replies, r.leads));
+      const posRates = rows.map(r => pctNum(r.positives, r.leads));
+      const bookRates = rows.map(r => pctNum(r.booked, r.leads));
+
+      // Totals
+      const totals = rows.reduce((t, r) => ({
+        leads: t.leads + r.leads, replies: t.replies + r.replies,
+        positives: t.positives + r.positives, booked: t.booked + r.booked
+      }), { leads: 0, replies: 0, positives: 0, booked: 0 });
+
+      // Charts
+      let posChart = '';
+      byPosRate.forEach(r => {
+        const rate = pctNum(r.positives, r.leads);
+        const w = maxPosRate > 0 ? Math.round(rate / maxPosRate * 100) : 0;
+        posChart += '<div class="bar-row"><div class="bar-label">' + r.name + '</div><div class="bar-track"><div class="bar-fill positive" style="width:' + w + '%"></div></div><div class="bar-value">' + pct(r.positives, r.leads) + '</div></div>';
+      });
+
+      let bookChart = '';
+      byBookRate.forEach(r => {
+        const rate = pctNum(r.booked, r.leads);
+        const w = maxBookRate > 0 ? Math.round(rate / maxBookRate * 100) : 0;
+        bookChart += '<div class="bar-row"><div class="bar-label">' + r.name + '</div><div class="bar-track"><div class="bar-fill booked" style="width:' + w + '%"></div></div><div class="bar-value">' + pct(r.booked, r.leads) + '</div></div>';
+      });
+
+      // Table rows
+      let tbody = '';
+      rows.forEach(r => {
+        const rr = pctNum(r.replies, r.leads);
+        const pr = pctNum(r.positives, r.leads);
+        const br = pctNum(r.booked, r.leads);
+        tbody += '<tr>' +
+          '<td>' + r.name + '</td>' +
+          '<td class="numeric">' + fmt(r.leads) + '</td>' +
+          '<td class="numeric">' + fmt(r.replies) + '</td>' +
+          '<td class="numeric"><span class="badge ' + badgeClass(rr, replyRates) + '">' + pct(r.replies, r.leads) + '</span></td>' +
+          '<td class="numeric">' + fmt(r.positives) + '</td>' +
+          '<td class="numeric"><span class="badge ' + badgeClass(pr, posRates) + '">' + pct(r.positives, r.leads) + '</span></td>' +
+          '<td class="numeric">' + fmt(r.booked) + '</td>' +
+          '<td class="numeric"><span class="badge ' + badgeClass(br, bookRates) + '">' + pct(r.booked, r.leads) + '</span></td>' +
+          '</tr>';
+      });
+
+      document.getElementById(containerId).innerHTML =
+        '<div class="charts-row">' +
+          '<div class="chart-container"><div class="chart-title">' + (posLabel || "Positive Rate") + '</div><div class="bar-chart">' + posChart + '</div></div>' +
+          '<div class="chart-container"><div class="chart-title">' + (bookedLabel || "Booked Rate") + '</div><div class="bar-chart">' + bookChart + '</div></div>' +
+        '</div>' +
+        '<div class="table-wrap"><div class="table-scroll">' +
+          '<table class="sortable"><thead><tr>' +
+            '<th data-sort="string">' + (labelHeader || "Name") + ' <span class="sort-icon">▼</span></th>' +
+            '<th class="numeric" data-sort="number">Leads <span class="sort-icon">▼</span></th>' +
+            '<th class="numeric" data-sort="number">Replies <span class="sort-icon">▼</span></th>' +
+            '<th class="numeric" data-sort="percent">Reply % <span class="sort-icon">▼</span></th>' +
+            '<th class="numeric" data-sort="number">Positives <span class="sort-icon">▼</span></th>' +
+            '<th class="numeric" data-sort="percent">Pos % <span class="sort-icon">▼</span></th>' +
+            '<th class="numeric" data-sort="number">Booked <span class="sort-icon">▼</span></th>' +
+            '<th class="numeric" data-sort="percent">Book % <span class="sort-icon">▼</span></th>' +
+          '</tr></thead>' +
+          '<tbody>' + tbody + '</tbody>' +
+          '<tfoot><tr><td>Total</td>' +
+            '<td class="numeric">' + fmt(totals.leads) + '</td>' +
+            '<td class="numeric">' + fmt(totals.replies) + '</td>' +
+            '<td class="numeric">' + pct(totals.replies, totals.leads) + '</td>' +
+            '<td class="numeric">' + fmt(totals.positives) + '</td>' +
+            '<td class="numeric">' + pct(totals.positives, totals.leads) + '</td>' +
+            '<td class="numeric">' + fmt(totals.booked) + '</td>' +
+            '<td class="numeric">' + pct(totals.booked, totals.leads) + '</td>' +
+          '</tr></tfoot>' +
+          '</table></div></div>';
+    }
+
+    // ── RENDER: RECOMMENDATIONS ──────────────────────────────────────────
+    function renderRecommendations(recs) {
+      if (!recs || Object.keys(recs).length === 0) {
+        document.getElementById("recommendations-content").innerHTML =
+          '<div class="chart-container" style="text-align:center;padding:40px 24px">' +
+          '<div style="color:rgba(255,255,255,.3);font-size:13px;font-weight:500;text-transform:uppercase;letter-spacing:1px">Data coming soon</div>' +
+          '</div>';
+        return;
+      }
+      let html = '<div class="recommendations-grid">';
+      Object.keys(recs).forEach(ct => {
+        html += '<div class="recommendation-card"><h3><span class="type-icon"></span>' + ct + '</h3>';
+        recs[ct].forEach((r, i) => {
+          const posRate = pct(r.positives, r.leads);
+          const bookRate = pct(r.booked, r.leads);
+          html += '<div class="strategy-rank">' +
+            '<div class="rank-number rank-' + (i + 1) + '">' + (i + 1) + '</div>' +
+            '<div class="strategy-name">' + r.strategy + '</div>' +
+            '<div class="strategy-metrics">' +
+              '<div class="strategy-metric"><div class="strategy-metric-value">' + posRate + '</div><div class="strategy-metric-label">Pos Rate</div></div>' +
+              '<div class="strategy-metric"><div class="strategy-metric-value">' + bookRate + '</div><div class="strategy-metric-label">Book Rate</div></div>' +
+            '</div></div>';
+        });
+        html += '</div>';
+      });
+      html += '</div>';
+      document.getElementById("recommendations-content").innerHTML = html;
+    }
+
+    // ── SORTABLE TABLES ──────────────────────────────────────────────────
+    function initSortableTables() {
+      document.querySelectorAll("table.sortable").forEach(table => {
+        const ths = table.querySelectorAll("th");
+        const tbody = table.querySelector("tbody");
+        ths.forEach((th, i) => {
+          th.addEventListener("click", () => {
+            const type = th.dataset.sort;
+            if (!type) return;
+            const asc = th.classList.contains("sort-asc");
+            ths.forEach(h => { h.classList.remove("sort-asc", "sort-desc"); h.querySelector(".sort-icon").textContent = "▼"; });
+            th.classList.add(asc ? "sort-desc" : "sort-asc");
+            th.querySelector(".sort-icon").textContent = asc ? "▼" : "▲";
+            const rows = Array.from(tbody.querySelectorAll("tr"));
+            rows.sort((a, b) => {
+              let av = a.cells[i].textContent.trim(), bv = b.cells[i].textContent.trim();
+              if (type === "number") { av = parseFloat(av.replace(/,/g, "")) || 0; bv = parseFloat(bv.replace(/,/g, "")) || 0; }
+              else if (type === "percent") { av = parseFloat(av.replace("%", "")) || 0; bv = parseFloat(bv.replace("%", "")) || 0; }
+              if (av < bv) return asc ? 1 : -1;
+              if (av > bv) return asc ? -1 : 1;
+              return 0;
+            });
+            rows.forEach(r => tbody.appendChild(r));
+          });
+        });
+      });
+    }
+
+    // ── SCROLL SPY ───────────────────────────────────────────────────────
     function updateNav() {
       const sp = window.scrollY + 100;
+      const sections = document.querySelectorAll("section[id]");
+      const navLinks = document.querySelectorAll(".nav-link");
       sections.forEach(s => {
         if (sp >= s.offsetTop && sp < s.offsetTop + s.offsetHeight) {
           navLinks.forEach(l => {
-            l.classList.toggle('active', l.getAttribute('href') === '#' + s.id);
+            l.classList.toggle("active", l.getAttribute("href") === "#" + s.id);
           });
         }
       });
     }
-    window.addEventListener('scroll', updateNav);
-    updateNav();
+    window.addEventListener("scroll", updateNav);
 
-    // Sortable tables
-    document.querySelectorAll('table.sortable').forEach(table => {
-      const ths = table.querySelectorAll('th');
-      const tbody = table.querySelector('tbody');
-      ths.forEach((th, i) => {
-        th.addEventListener('click', () => {
-          const type = th.dataset.sort;
-          if (!type) return;
-          const asc = th.classList.contains('sort-asc');
-          ths.forEach(h => { h.classList.remove('sort-asc','sort-desc'); h.querySelector('.sort-icon').textContent = '▼'; });
-          th.classList.add(asc ? 'sort-desc' : 'sort-asc');
-          th.querySelector('.sort-icon').textContent = asc ? '▼' : '▲';
-          const rows = Array.from(tbody.querySelectorAll('tr'));
-          rows.sort((a, b) => {
-            let av = a.cells[i].textContent.trim(), bv = b.cells[i].textContent.trim();
-            if (type === 'number') { av = parseFloat(av.replace(/,/g,''))||0; bv = parseFloat(bv.replace(/,/g,''))||0; }
-            else if (type === 'percent') { av = parseFloat(av.replace('%',''))||0; bv = parseFloat(bv.replace('%',''))||0; }
-            if (av < bv) return asc ? 1 : -1;
-            if (av > bv) return asc ? -1 : 1;
-            return 0;
-          });
-          rows.forEach(r => tbody.appendChild(r));
-        });
+    // ── RENDER ALL ───────────────────────────────────────────────────────
+    function renderAll() {
+      const data = getCurrentData();
+      if (!data) return;
+
+      // Header
+      document.getElementById("report-label").textContent = data.label + " Campaign Insights";
+      document.getElementById("date-range").textContent = data.dateRange;
+      document.title = data.label + " Campaign Insights - Branding By Books";
+
+      // Sections
+      renderOverview(data);
+      renderSegment("company-size-content", data.companySize, "Size", "Positive Rate by Company Size", "Booked Rate by Company Size");
+      renderSegment("company-type-content", data.companyType, "Company Type", "Positive Rate by Company Type", "Booked Rate by Company Type");
+      renderSegment("strategy-content", data.strategy, "Strategy", "Positive Rate by Strategy", "Booked Rate by Strategy");
+      renderRecommendations(data.recommendations);
+
+      // Re-init table sorting
+      initSortableTables();
+      updateNav();
+    }
+
+    // ── MONTH SWITCHING ──────────────────────────────────────────────────
+    function switchMonth(monthKey) {
+      currentMonth = monthKey;
+      document.querySelectorAll(".month-btn").forEach(btn => {
+        btn.classList.toggle("active", btn.dataset.month === monthKey);
       });
-    });
+      renderAll();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    // ── INIT ─────────────────────────────────────────────────────────────
+    renderMonthSelector();
+    renderAll();
   </script>
 </body>
 </html>

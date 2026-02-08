@@ -125,9 +125,16 @@
             font-weight: 600;
         }
 
+        .table-scroll {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
         @media (max-width: 768px) {
             .header h1 { font-size: 1.5rem; }
             .chart-wrapper { height: 350px; }
+            table { font-size: 0.75rem; }
+            th, td { padding: 8px 6px; white-space: nowrap; }
         }
     </style>
 </head>
@@ -158,6 +165,7 @@
         <!-- Data Table -->
         <div class="chart-container">
             <h2>Daily Breakdown (Most Recent First)</h2>
+            <div class="table-scroll">
             <table>
                 <thead>
                     <tr>
@@ -174,6 +182,7 @@
                 <tbody id="dataTable">
                 </tbody>
             </table>
+            </div>
         </div>
     </div>
 

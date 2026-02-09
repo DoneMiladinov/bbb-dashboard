@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-02-08T19:01:04Z",
+  "lastUpdated": "2026-02-09T08:31:11Z",
   "months": {
     "2026-01": {
       "label": "Month 1",
@@ -324,12 +324,12 @@
       "dateRange": "Feb 5, 2026 - Mar 4, 2026",
       "overview": {
         "leads": 22055,
-        "replies": 177,
+        "replies": 180,
         "positives": 63,
         "booked": 0,
         "leadsToday": 0,
-        "repliesToday": 3,
-        "positivesToday": 3
+        "repliesToday": 2,
+        "positivesToday": 0
       },
       "companySize": [],
       "companyType": [],
@@ -337,12 +337,12 @@
         {
           "name": "S1",
           "leads": 3989,
-          "replies": 42,
+          "replies": 43,
           "positives": 12,
           "booked": 0,
           "leadsToday": 0,
           "repliesToday": 1,
-          "positivesToday": 1
+          "positivesToday": 0
         },
         {
           "name": "S2",
@@ -377,17 +377,17 @@
         {
           "name": "S6",
           "leads": 3370,
-          "replies": 26,
+          "replies": 27,
           "positives": 10,
           "booked": 0,
           "leadsToday": 0,
-          "repliesToday": 2,
-          "positivesToday": 2
+          "repliesToday": 1,
+          "positivesToday": 0
         },
         {
           "name": "S7",
           "leads": 5519,
-          "replies": 36,
+          "replies": 37,
           "positives": 14,
           "booked": 0,
           "leadsToday": 0,

@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-02-09T08:31:11Z",
+  "lastUpdated": "2026-02-09T12:25:02Z",
   "months": {
     "2026-01": {
       "label": "Month 1",
@@ -324,12 +324,12 @@
       "dateRange": "Feb 5, 2026 - Mar 4, 2026",
       "overview": {
         "leads": 22055,
-        "replies": 180,
-        "positives": 63,
+        "replies": 181,
+        "positives": 64,
         "booked": 0,
         "leadsToday": 0,
-        "repliesToday": 2,
-        "positivesToday": 0
+        "repliesToday": 3,
+        "positivesToday": 1
       },
       "companySize": [],
       "companyType": [],
@@ -377,12 +377,12 @@
         {
           "name": "S6",
           "leads": 3370,
-          "replies": 27,
-          "positives": 10,
+          "replies": 28,
+          "positives": 11,
           "booked": 0,
           "leadsToday": 0,
-          "repliesToday": 1,
-          "positivesToday": 0
+          "repliesToday": 2,
+          "positivesToday": 1
         },
         {
           "name": "S7",

@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-02-09T12:25:02Z",
+  "lastUpdated": "2026-02-09T22:16:04Z",
   "months": {
     "2026-01": {
       "label": "Month 1",
@@ -11,7 +11,8 @@
         "booked": 192,
         "leadsToday": 0,
         "repliesToday": 0,
-        "positivesToday": 0
+        "positivesToday": 0,
+        "emailsSent": 451339
       },
       "companySize": [
         {
@@ -103,7 +104,8 @@
           "booked": 23,
           "leadsToday": 0,
           "repliesToday": 0,
-          "positivesToday": 0
+          "positivesToday": 0,
+          "emailsSent": 76693
         },
         {
           "name": "S2",
@@ -113,7 +115,8 @@
           "booked": 29,
           "leadsToday": 0,
           "repliesToday": 0,
-          "positivesToday": 0
+          "positivesToday": 0,
+          "emailsSent": 75609
         },
         {
           "name": "S3",
@@ -123,7 +126,8 @@
           "booked": 8,
           "leadsToday": 0,
           "repliesToday": 0,
-          "positivesToday": 0
+          "positivesToday": 0,
+          "emailsSent": 22751
         },
         {
           "name": "S4",
@@ -133,7 +137,8 @@
           "booked": 6,
           "leadsToday": 0,
           "repliesToday": 0,
-          "positivesToday": 0
+          "positivesToday": 0,
+          "emailsSent": 29012
         },
         {
           "name": "S5a",
@@ -143,7 +148,8 @@
           "booked": 4,
           "leadsToday": 0,
           "repliesToday": 0,
-          "positivesToday": 0
+          "positivesToday": 0,
+          "emailsSent": 9666
         },
         {
           "name": "S5b",
@@ -153,7 +159,8 @@
           "booked": 26,
           "leadsToday": 0,
           "repliesToday": 0,
-          "positivesToday": 0
+          "positivesToday": 0,
+          "emailsSent": 76603
         },
         {
           "name": "S6",
@@ -163,7 +170,8 @@
           "booked": 20,
           "leadsToday": 0,
           "repliesToday": 0,
-          "positivesToday": 0
+          "positivesToday": 0,
+          "emailsSent": 77047
         },
         {
           "name": "S7",
@@ -173,7 +181,8 @@
           "booked": 14,
           "leadsToday": 0,
           "repliesToday": 0,
-          "positivesToday": 0
+          "positivesToday": 0,
+          "emailsSent": 83958
         }
       ],
       "recommendations": {
@@ -324,12 +333,13 @@
       "dateRange": "Feb 5, 2026 - Mar 4, 2026",
       "overview": {
         "leads": 22055,
-        "replies": 181,
-        "positives": 64,
+        "replies": 177,
+        "positives": 63,
         "booked": 0,
         "leadsToday": 0,
-        "repliesToday": 3,
-        "positivesToday": 1
+        "repliesToday": 0,
+        "positivesToday": 0,
+        "emailsSent": 22055
       },
       "companySize": [],
       "companyType": [],
@@ -337,12 +347,13 @@
         {
           "name": "S1",
           "leads": 3989,
-          "replies": 43,
+          "replies": 42,
           "positives": 12,
           "booked": 0,
           "leadsToday": 0,
-          "repliesToday": 1,
-          "positivesToday": 0
+          "repliesToday": 0,
+          "positivesToday": 0,
+          "emailsSent": 3989
         },
         {
           "name": "S2",
@@ -352,7 +363,8 @@
           "booked": 0,
           "leadsToday": 0,
           "repliesToday": 0,
-          "positivesToday": 0
+          "positivesToday": 0,
+          "emailsSent": 3820
         },
         {
           "name": "S3",
@@ -362,7 +374,8 @@
           "booked": 0,
           "leadsToday": 0,
           "repliesToday": 0,
-          "positivesToday": 0
+          "positivesToday": 0,
+          "emailsSent": 1076
         },
         {
           "name": "S5b",
@@ -372,27 +385,30 @@
           "booked": 0,
           "leadsToday": 0,
           "repliesToday": 0,
-          "positivesToday": 0
+          "positivesToday": 0,
+          "emailsSent": 4281
         },
         {
           "name": "S6",
           "leads": 3370,
-          "replies": 28,
-          "positives": 11,
+          "replies": 26,
+          "positives": 10,
           "booked": 0,
           "leadsToday": 0,
-          "repliesToday": 2,
-          "positivesToday": 1
+          "repliesToday": 0,
+          "positivesToday": 0,
+          "emailsSent": 3370
         },
         {
           "name": "S7",
           "leads": 5519,
-          "replies": 37,
+          "replies": 36,
           "positives": 14,
           "booked": 0,
           "leadsToday": 0,
           "repliesToday": 0,
-          "positivesToday": 0
+          "positivesToday": 0,
+          "emailsSent": 5519
         }
       ],
       "recommendations": {}

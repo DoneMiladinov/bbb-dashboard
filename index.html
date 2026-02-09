@@ -204,7 +204,7 @@
       const result = {
         label: "Lifetime",
         dateRange: "",
-        overview: { leads: 0, replies: 0, positives: 0, booked: 0 },
+        overview: { leads: 0, replies: 0, positives: 0, booked: 0, emailsSent: 0 },
         companySize: [],
         companyType: [],
         strategy: [],
@@ -226,6 +226,7 @@
         result.overview.replies += m.overview.replies;
         result.overview.positives += m.overview.positives;
         result.overview.booked += m.overview.booked;
+        result.overview.emailsSent += (m.overview.emailsSent || 0);
       });
 
       // Sum segments by name
@@ -309,7 +310,7 @@
 
       document.getElementById("overview-content").innerHTML =
         '<div class="metrics-grid">' +
-          '<div class="metric-card"><div class="metric-value">' + fmt(o.leads) + '</div><div class="metric-label">LEADS CONTACTED</div><div class="metric-subtext good">total volume</div></div>' +
+          '<div class="metric-card"><div class="metric-value">' + fmt(o.leads) + '</div><div class="metric-label">LEADS CONTACTED</div><div class="metric-subtext good">' + fmt(o.emailsSent || 0) + ' emails sent</div></div>' +
           '<div class="metric-card"><div class="metric-value">' + fmt(o.replies) + '</div><div class="metric-label">REPLIES</div><div class="metric-subtext good">' + replyRate + ' reply rate</div></div>' +
           '<div class="metric-card"><div class="metric-value">' + fmt(o.positives) + '</div><div class="metric-label">POSITIVE REPLIES</div><div class="metric-subtext good">' + positiveRate + ' positive rate</div></div>' +
         '</div>' +

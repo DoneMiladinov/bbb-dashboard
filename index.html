@@ -304,7 +304,7 @@
     function renderOverview(data) {
       const o = data.overview;
       const replyRate = pct(o.replies, o.leads);
-      const positiveRate = pct(o.positives, o.replies);
+      const positiveRate = pct(o.positives, o.leads);
       const leadsPerPositive = o.positives === 0 ? "—" : Math.round(o.leads / o.positives);
       const leadsPerCall = o.booked === 0 ? "—" : "1:" + fmt(Math.round(o.leads / o.booked));
 
@@ -316,7 +316,7 @@
         '</div>' +
         '<div class="metrics-grid">' +
           '<div class="metric-card"><div class="metric-value">' + leadsPerPositive + '</div><div class="metric-label">LEADS / POSITIVE</div><div class="metric-subtext good">efficiency ratio</div></div>' +
-          '<div class="metric-card highlight"><div class="metric-value">' + replyRate + '</div><div class="metric-label">OVERALL REPLY RATE</div><div class="metric-subtext good">reply / leads</div></div>' +
+          '<div class="metric-card highlight"><div class="metric-value">' + positiveRate + '</div><div class="metric-label">POSITIVE REPLY RATE</div><div class="metric-subtext good">positives / leads contacted</div></div>' +
           '<div class="metric-card"><div class="metric-value">' + fmt(o.booked) + '</div><div class="metric-label">BOOKED CALLS</div><div class="metric-subtext good">' + leadsPerCall + ' leads per call</div></div>' +
         '</div>';
     }

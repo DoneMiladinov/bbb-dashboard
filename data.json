@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-02-18T08:46:11Z",
+  "lastUpdated": "2026-02-19T07:56:56Z",
   "months": {
     "2026-01": {
       "label": "Month 1",
@@ -336,9 +336,9 @@
         "replies": 1325,
         "positives": 351,
         "booked": 0,
-        "leadsToday": 6231,
-        "repliesToday": 34,
-        "positivesToday": 8,
+        "leadsToday": 0,
+        "repliesToday": 0,
+        "positivesToday": 0,
         "emailsSent": 139132
       },
       "companySize": [],
@@ -350,9 +350,9 @@
           "replies": 232,
           "positives": 60,
           "booked": 0,
-          "leadsToday": 103,
-          "repliesToday": 4,
-          "positivesToday": 2,
+          "leadsToday": 0,
+          "repliesToday": 0,
+          "positivesToday": 0,
           "emailsSent": 21886
         },
         {
@@ -361,9 +361,9 @@
           "replies": 225,
           "positives": 66,
           "booked": 0,
-          "leadsToday": 1897,
-          "repliesToday": 3,
-          "positivesToday": 1,
+          "leadsToday": 0,
+          "repliesToday": 0,
+          "positivesToday": 0,
           "emailsSent": 24604
         },
         {
@@ -372,8 +372,8 @@
           "replies": 70,
           "positives": 16,
           "booked": 0,
-          "leadsToday": 826,
-          "repliesToday": 2,
+          "leadsToday": 0,
+          "repliesToday": 0,
           "positivesToday": 0,
           "emailsSent": 5848
         },
@@ -383,9 +383,9 @@
           "replies": 249,
           "positives": 57,
           "booked": 0,
-          "leadsToday": 1164,
-          "repliesToday": 9,
-          "positivesToday": 2,
+          "leadsToday": 0,
+          "repliesToday": 0,
+          "positivesToday": 0,
           "emailsSent": 25720
         },
         {
@@ -394,9 +394,9 @@
           "replies": 224,
           "positives": 65,
           "booked": 0,
-          "leadsToday": 1233,
-          "repliesToday": 7,
-          "positivesToday": 1,
+          "leadsToday": 0,
+          "repliesToday": 0,
+          "positivesToday": 0,
           "emailsSent": 22304
         },
         {
@@ -405,9 +405,9 @@
           "replies": 325,
           "positives": 87,
           "booked": 0,
-          "leadsToday": 1008,
-          "repliesToday": 9,
-          "positivesToday": 2,
+          "leadsToday": 0,
+          "repliesToday": 0,
+          "positivesToday": 0,
           "emailsSent": 38770
         }
       ],

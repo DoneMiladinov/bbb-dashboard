@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-03-08T10:01:47Z",
+  "lastUpdated": "2026-03-09T11:28:23Z",
   "months": {
     "2026-01": {
       "label": "Month 1",
@@ -333,11 +333,11 @@
       "dateRange": "Feb 5, 2026 - Mar 4, 2026",
       "overview": {
         "leads": 150289,
-        "replies": 4341,
-        "positives": 1109,
+        "replies": 4344,
+        "positives": 1111,
         "booked": 0,
         "leadsToday": 0,
-        "repliesToday": 2,
+        "repliesToday": 1,
         "positivesToday": 1,
         "emailsSent": 436875
       },
@@ -351,18 +351,18 @@
           "positives": 239,
           "booked": 0,
           "leadsToday": 0,
-          "repliesToday": 1,
-          "positivesToday": 1,
+          "repliesToday": 0,
+          "positivesToday": 0,
           "emailsSent": 75945
         },
         {
           "name": "S2",
           "leads": 26384,
-          "replies": 775,
-          "positives": 221,
+          "replies": 776,
+          "positives": 222,
           "booked": 0,
           "leadsToday": 0,
-          "repliesToday": 1,
+          "repliesToday": 0,
           "positivesToday": 0,
           "emailsSent": 76360
         },
@@ -391,18 +391,18 @@
         {
           "name": "S6",
           "leads": 24138,
-          "replies": 785,
-          "positives": 199,
+          "replies": 786,
+          "positives": 200,
           "booked": 0,
           "leadsToday": 0,
-          "repliesToday": 0,
-          "positivesToday": 0,
+          "repliesToday": 1,
+          "positivesToday": 1,
           "emailsSent": 70398
         },
         {
           "name": "S7",
           "leads": 39741,
-          "replies": 943,
+          "replies": 944,
           "positives": 241,
           "booked": 0,
           "leadsToday": 0,
